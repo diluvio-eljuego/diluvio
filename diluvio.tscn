@@ -1,0 +1,167 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://objetos/MundoParalax/MuchasNubes.PNG" type="Texture" id=1]
+[ext_resource path="res://objetos/MundoParalax/Ciudad.PNG" type="Texture" id=2]
+[ext_resource path="res://objetos/MundoParalax/Plataforma.PNG" type="Texture" id=3]
+[ext_resource path="res://objetos/MundoParalax/plataforma_piso.PNG" type="Texture" id=4]
+[ext_resource path="res://objetos/MundoParalax/cielo.PNG" type="Texture" id=5]
+[ext_resource path="res://escenas/ghostParalax.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 181.75, 52.5 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 5, -306 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_limit_begin = Vector2( 100, 100 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 10, 1 )
+motion_mirroring = Vector2( 1849, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 928.75, 97.5 )
+scale = Vector2( 0.452271, 0.229004 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1855, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 952.25, 82.75 )
+scale = Vector2( 0.46228, 0.408936 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 5, 1 )
+motion_mirroring = Vector2( 1668, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 845.25, -32.25 )
+scale = Vector2( 0.411987, 0.519287 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 2, 1 )
+motion_mirroring = Vector2( 1006, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 513.25, 159.5 )
+scale = Vector2( 0.246948, 0.237793 )
+texture = ExtResource( 1 )
+
+[node name="ghostParallax" parent="." instance=ExtResource( 6 )]
+position = Vector2( 496, 637 )
+scale = Vector2( 5, 5 )
+move_speed = 300.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ghostParallax"]
+remote_path = NodePath("../Camera2D")
+use_global_coordinates = false
+
+[node name="Camera2D" type="Camera2D" parent="ghostParallax"]
+rotating = true
+current = true
+limit_left = 0
+limit_top = -112
+limit_bottom = 500
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="plataforma_1" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_1"]
+position = Vector2( 2288, -84 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_1"]
+position = Vector2( 486, 750 )
+shape = SubResource( 1 )
+
+[node name="plataforma_2" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_2"]
+position = Vector2( 2745, -139 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_2"]
+position = Vector2( 939, 693 )
+shape = SubResource( 1 )
+
+[node name="plataforma_3" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_3"]
+position = Vector2( 3197, -252 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_3"]
+position = Vector2( 1399, 586 )
+shape = SubResource( 1 )
+
+[node name="plataforma_4" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_4"]
+position = Vector2( 3813, -84 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_4"]
+position = Vector2( 2009, 751 )
+shape = SubResource( 1 )
+
+[node name="plataforma_5" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_5"]
+position = Vector2( 4387, -243 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_5"]
+position = Vector2( 2586, 586 )
+shape = SubResource( 1 )
+
+[node name="plataforma_6" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_6"]
+position = Vector2( 4974, -95 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_6"]
+position = Vector2( 3169, 730 )
+shape = SubResource( 1 )
+
+[node name="plataforma_7" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_7"]
+position = Vector2( 5519, -203 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_7"]
+position = Vector2( 3723, 635 )
+shape = SubResource( 1 )
+
+[node name="plataforma_8" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+
+[node name="Sprite" type="Sprite" parent="plataforma_8"]
+position = Vector2( 6085, -297 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_8"]
+position = Vector2( 4285, 532 )
+shape = SubResource( 1 )
